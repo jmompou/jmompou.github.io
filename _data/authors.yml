@@ -16,3 +16,12 @@ Name2 Name2:
   avatar      : "bio-photo.jpg"
   twitter     : "name2"
   google_plus : "Name"
+
+Jorge Ibáñez Puertas:
+  name        : "Jorge Ibáñez Puertas"
+  uri         : "https://github.com/jmompou"
+  email       : "joorge.ibanez.puertas@gmail.com"
+  bio         : "Mathematician and data analyst. Master's in AI (VIU)."
+  avatar      : ""
+  linkedin    : "jorgeibanezpuertas"
+  github      : "jmompou"
