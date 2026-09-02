@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Jorge Ibáñez Puertas — Torrevieja, Spain (open to relocation / remote) • +34 722 720 048 • joorge.ibanez.puertas@gmail.com
+Jorge Ibáñez Puertas — Torrevieja, Spain (open to relocation / remote) • joorge.ibanez.puertas@gmail.com
 linkedin.com/in/jorgeibanezpuertas • github.com/jmompou
 
 PROFILE
