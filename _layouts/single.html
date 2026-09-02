@@ -11,12 +11,16 @@ layout: default
   {% assign download_paper_label = "Descargar artículo" %}
   {% assign download_slides_label = "Descargar diapositivas" %}
   {% assign download_bibtex_label = "Descargar Bibtex" %}
+  {% assign demo_label = "Ver resultados" %}
+  {% assign code_label = "Ver código" %}
 {% else %}
   {% assign published_in_label = "Published in" %}
   {% assign recommended_citation_label = "Recommended citation" %}
   {% assign download_paper_label = "Download Paper" %}
   {% assign download_slides_label = "Download Slides" %}
   {% assign download_bibtex_label = "Download Bibtex" %}
+  {% assign demo_label = "View results" %}
+  {% assign code_label = "View code" %}
 {% endif %}
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
@@ -62,30 +66,30 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
 
-        {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ page.slidesurl }}">{{ download_slides_label }}</a> | <a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-        {% elsif page.citation and page.paperurl and page.slidesurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ page.slidesurl }}">{{ download_slides_label }}</a></p>
-        {% elsif page.citation and page.paperurl and page.bibtexurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-        {% elsif page.citation and page.paperurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.paperurl }}">{{ download_paper_label }}</a></p>
-        {% elsif page.citation and page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">{{ download_slides_label }}</a> | <a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-        {% elsif page.citation and page.slidesurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">{{ download_slides_label }}</a></p>
-        {% elsif page.slidesurl and page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">{{ download_slides_label }}</a> | <a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-        {% elsif page.paperurl and page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-        {% elsif page.citation and page.bibtexurl %}
-          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br /><a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
+        {% capture links_html %}{% endcapture %}
+        {% for pair in "paperurl,download_paper_label|demourl,demo_label|codeurl,code_label|slidesurl,download_slides_label|bibtexurl,download_bibtex_label" | split: "|" %}
+          {% assign field_name = pair | split: "," | first %}
+          {% assign label_name = pair | split: "," | last %}
+          {% assign field_value = page[field_name] %}
+          {% if field_value %}
+            {% case label_name %}
+              {% when 'download_paper_label' %}{% assign label_value = download_paper_label %}
+              {% when 'demo_label' %}{% assign label_value = demo_label %}
+              {% when 'code_label' %}{% assign label_value = code_label %}
+              {% when 'download_slides_label' %}{% assign label_value = download_slides_label %}
+              {% when 'download_bibtex_label' %}{% assign label_value = download_bibtex_label %}
+            {% endcase %}
+            {% if links_html != "" %}{% capture links_html %}{{ links_html }} | {% endcapture %}{% endif %}
+            {% capture links_html %}{{ links_html }}<a href="{{ field_value }}">{{ label_value }}</a>{% endcapture %}
+          {% endif %}
+        {% endfor %}
+
+        {% if page.citation and links_html != "" %}
+          <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br />{{ links_html }}</p>
         {% elsif page.citation %}
           <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}</p>
-        {% elsif page.slidesurl %}
-          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">{{ download_slides_label }}</a></p>
-        {% elsif page.bibtexurl %}
-          <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">{{ download_bibtex_label }}</a></p>
+        {% elsif links_html != "" %}
+          <p style="font-size: smaller">{{ links_html }}</p>
         {% endif %}
 
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[page.lang | default: site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}

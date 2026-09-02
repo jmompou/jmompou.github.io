@@ -7,6 +7,8 @@
   {% assign download_paper_label = "Descargar artículo" %}
   {% assign download_slides_label = "Descargar diapositivas" %}
   {% assign download_bibtex_label = "Descargar Bibtex" %}
+  {% assign demo_label = "Ver resultados" %}
+  {% assign code_label = "Ver código" %}
   {% assign read_more_label = "Leer más" %}
 {% else %}
   {% assign published_in_label = "Published in" %}
@@ -14,6 +16,8 @@
   {% assign download_paper_label = "Download Paper" %}
   {% assign download_slides_label = "Download Slides" %}
   {% assign download_bibtex_label = "Download Bibtex" %}
+  {% assign demo_label = "View results" %}
+  {% assign code_label = "View code" %}
   {% assign read_more_label = "Read more" %}
 {% endif %}
 
@@ -69,32 +73,30 @@
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> {{ read_more_label }}</a></strong></p></p>
     {% endif %}
 
-    {% if post.citation and post.paperurl and post.slidesurl and post.bibtexurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ post.slidesurl }}">{{ download_slides_label }}</a> | <a href="{{ post.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-    {% elsif post.citation and post.paperurl and post.slidesurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ post.slidesurl }}">{{ download_slides_label }}</a></p>
-    {% elsif post.citation and post.paperurl and post.bibtexurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ post.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-    {% elsif post.citation and post.paperurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.paperurl }}">{{ download_paper_label }}</a></p>
-    {% elsif post.citation and post.slidesurl and post.bibtexurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">{{ download_slides_label }}</a> | <a href="{{ post.bibtexurl}}">{{ download_bibtex_label }}</a></p>
-    {% elsif post.citation and post.slidesurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">{{ download_slides_label }}</a></p>
-    {% elsif post.citation and post.bibtexurl %}
-      <p>{{ recommended_citation_label }}: {{ post.citation }}<br /><a href="{{ post.bibtexurl }}">{{ download_bibtex_label }}</a></p>
+    {% capture links_html %}{% endcapture %}
+    {% for pair in "paperurl,download_paper_label|demourl,demo_label|codeurl,code_label|slidesurl,download_slides_label|bibtexurl,download_bibtex_label" | split: "|" %}
+      {% assign field_name = pair | split: "," | first %}
+      {% assign label_name = pair | split: "," | last %}
+      {% assign field_value = post[field_name] %}
+      {% if field_value %}
+        {% case label_name %}
+          {% when 'download_paper_label' %}{% assign label_value = download_paper_label %}
+          {% when 'demo_label' %}{% assign label_value = demo_label %}
+          {% when 'code_label' %}{% assign label_value = code_label %}
+          {% when 'download_slides_label' %}{% assign label_value = download_slides_label %}
+          {% when 'download_bibtex_label' %}{% assign label_value = download_bibtex_label %}
+        {% endcase %}
+        {% if links_html != "" %}{% capture links_html %}{{ links_html }} | {% endcapture %}{% endif %}
+        {% capture links_html %}{{ links_html }}<a href="{{ field_value }}">{{ label_value }}</a>{% endcapture %}
+      {% endif %}
+    {% endfor %}
+
+    {% if post.citation and links_html != "" %}
+      <p>{{ recommended_citation_label }}: {{ post.citation }}<br />{{ links_html }}</p>
     {% elsif post.citation %}
       <p>{{ recommended_citation_label }}: {{ post.citation }}</p>
-    {% elsif post.paperurl and post.bibtexurl %}
-      <p><a href="{{ post.paperurl }}">{{ download_paper_label }}</a> | <a href="{{ post.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-    {% elsif post.paperurl %}
-      <p><a href="{{ post.paperurl }}">{{ download_paper_label }}</a></p>
-    {% elsif post.slidesurl and post.bibtexurl %}
-      <p><a href="{{ post.slidesurl }}">{{ download_slides_label }}</a> | <a href="{{ post.bibtexurl }}">{{ download_bibtex_label }}</a></p>
-    {% elsif post.slidesurl %}
-      <p><a href="{{ post.slidesurl }}">{{ download_slides_label }}</a></p>
-    {% elsif post.bibtexurl %}
-      <p><a href="{{ post.bibtexurl }}">{{ download_bibtex_label }}</a></p>
+    {% elsif links_html != "" %}
+      <p>{{ links_html }}</p>
     {% endif %}
 
   </article>
