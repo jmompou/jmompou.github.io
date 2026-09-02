@@ -8,11 +8,11 @@ translation_url: /publication/2026-08-01-prediccion-demanda-electrica
 excerpt: 'Short-term time series forecasting (Short Term Load Forecasting) of electricity demand in the German market using low-cost signals (SMARD, Open-Meteo/ERA5) and a Gradient Boosting (Machine Learning) model with weekly retraining.'
 date: 2026-08-01
 venue: 'VIU (Valencia International University), Master''s Thesis'
-paperurl: 'https://github.com/jmompou/simpleElectricityDemandForecaster/blob/main/Prediccio%CC%81n%20de%20demanda%20ele%CC%81ctrica%20bajo%20sen%CC%83ales%20de%20bajo%20coste%20y%20gradient%20boosting.pdf'
+paperurl: 'https://github.com/jmompou/simpleElectrDemandForecaster/blob/main/Prediccio%CC%81n%20de%20demanda%20ele%CC%81ctrica%20bajo%20sen%CC%83ales%20de%20bajo%20coste%20y%20gradient%20boosting.pdf'
 citation: 'Ibáñez Puertas, J. (2026). &quot;Short-Term Electricity Demand Forecasting Using Low-Cost Signals and Gradient Boosting.&quot; Master''s Thesis, Master''s in Artificial Intelligence, VIU.'
 ---
 
-You can see the project running live, showing the forecasts, at [homerlinux.duckdns.org/smard](http://homerlinux.duckdns.org/smard).
+You can see the project running live, showing the forecasts, at [homerlinux.duckdns.org/smard](http://homerlinux.duckdns.org/smard). The code is available on GitHub at [simpleElectrDemandForecaster](https://github.com/jmompou/simpleElectrDemandForecaster).
 
 **Abstract**
 
