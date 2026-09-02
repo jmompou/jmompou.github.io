@@ -3,15 +3,17 @@ title: "Predicción de demanda eléctrica a corto plazo mediante señales de baj
 collection: publications
 category: thesis
 permalink: /publication/2026-08-01-prediccion-demanda-electrica
-excerpt: 'Predicción a corto plazo (Short Term Load Forecasting) de la demanda eléctrica en el mercado alemán mediante señales de bajo coste (SMARD, Open-Meteo/ERA5) y un modelo Gradient Boosting con reentrenamiento semanal.'
+excerpt: 'Predicción de series temporales a corto plazo (Short Term Load Forecasting) de la demanda eléctrica en el mercado alemán mediante señales de bajo coste (SMARD, Open-Meteo/ERA5) y un modelo Gradient Boosting con reentrenamiento semanal.'
 date: 2026-08-01
 venue: 'VIU (Universidad Internacional de Valencia), Trabajo de Fin de Máster'
 citation: 'Ibáñez Puertas, J. (2026). &quot;Predicción de demanda eléctrica a corto plazo mediante señales de bajo coste y Gradient Boosting.&quot; Trabajo de Fin de Máster, Máster en Inteligencia Artificial, VIU.'
 ---
 
+Puede ver el proyecto funcionando en vivo, mostrando las predicciones, en [homerlinux.duckdns.org/smard](http://homerlinux.duckdns.org/smard).
+
 **Resumen**
 
-Este trabajo de fin de máster aborda un problema clásico de Short Term Load Forecasting. En concreto, se centra en realizar predicciones a corto plazo de la demanda eléctrica en el mercado alemán, en horizontes de horas a días. Para cumplir este objetivo se aplica una filosofía Open Source, basada en tratar con datos públicos, gratuitos y de fácil obtención. La demanda eléctrica se obtiene a partir de una API de SMARD, de la agencia federal Bundesnetzagentur. Se usarán también los datos climáticos de las diez ciudades alemanas de mayor población mediante la API Open-Meteo/ERA5; y datos de días no laborables alemanes a nivel nacional.
+Este trabajo de fin de máster aborda un problema clásico de series temporales conocido como Short Term Load Forecasting. En concreto, se centra en realizar predicciones a corto plazo de la demanda eléctrica en el mercado alemán, en horizontes de horas a días. Para cumplir este objetivo se aplica una filosofía Open Source, basada en tratar con datos públicos, gratuitos y de fácil obtención. La demanda eléctrica se obtiene a partir de una API de SMARD, de la agencia federal Bundesnetzagentur. Se usarán también los datos climáticos de las diez ciudades alemanas de mayor población mediante la API Open-Meteo/ERA5; y datos de días no laborables alemanes a nivel nacional.
 
 Con dichas señales se lleva a cabo el entrenamiento de un modelo Gradient Boosting con predicción a un paso, capaz de encadenar sus propias previsiones horarias hasta una previsión semanal. Su apoyo principal es un proceso tipo cron en Linux, que descarga datos cada hora en una base de datos local y fuerza un reentrenamiento semanal.
 
