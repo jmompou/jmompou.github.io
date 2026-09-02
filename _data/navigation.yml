@@ -21,6 +21,9 @@ main:
   - title: "CV"
     url: /cv/
 
+  - title: "QR"
+    url: /qr/
+
   - title: "Guía"
     url: /markdown/
 
@@ -36,6 +39,9 @@ main_en:
 
   - title: "CV"
     url: /en/cv/
+
+  - title: "QR"
+    url: /qr/
 
   - title: "Guide"
     url: /markdown/
