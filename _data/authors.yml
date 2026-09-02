@@ -17,11 +17,11 @@ Name2 Name2:
   twitter     : "name2"
   google_plus : "Name"
 
-Jorge Ibáñez Puertas:
+Jorge Ibáñez Puertas (ES):
   name        : "Jorge Ibáñez Puertas"
-  uri         : "https://github.com/jmompou"
   email       : "joorge.ibanez.puertas@gmail.com"
-  bio         : "Mathematician and data analyst. Master's in AI (VIU)."
-  avatar      : ""
+  bio         : "Matemático y analista de datos que también profundiza en economía. Máster en IA (VIU)."
+  location    : "España"
+  avatar      : "profile.png"
   linkedin    : "jorgeibanezpuertas"
   github      : "jmompou"

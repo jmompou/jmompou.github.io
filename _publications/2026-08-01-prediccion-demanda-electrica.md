@@ -3,9 +3,13 @@ title: "Predicción de demanda eléctrica a corto plazo mediante señales de baj
 collection: publications
 category: thesis
 permalink: /publication/2026-08-01-prediccion-demanda-electrica
-excerpt: 'Predicción de series temporales a corto plazo (Short Term Load Forecasting) de la demanda eléctrica en el mercado alemán mediante señales de bajo coste (SMARD, Open-Meteo/ERA5) y un modelo Gradient Boosting con reentrenamiento semanal.'
+author: "Jorge Ibáñez Puertas (ES)"
+lang: es
+translation_url: /en/publication/2026-08-01-prediccion-demanda-electrica
+excerpt: 'Predicción de series temporales a corto plazo (Short Term Load Forecasting) de la demanda eléctrica en el mercado alemán mediante señales de bajo coste (SMARD, Open-Meteo/ERA5) y un modelo Gradient Boosting (Machine Learning) con reentrenamiento semanal.'
 date: 2026-08-01
 venue: 'VIU (Universidad Internacional de Valencia), Trabajo de Fin de Máster'
+paperurl: 'https://github.com/jmompou/simpleElectricityDemandForecaster/blob/main/Predicci%C3%B3n%20de%20demanda%20el%C3%A9ctrica%20bajo%20se%C3%B1ales%20de%20bajo%20coste%20y%20gradient%20boosting.pdf'
 citation: 'Ibáñez Puertas, J. (2026). &quot;Predicción de demanda eléctrica a corto plazo mediante señales de bajo coste y Gradient Boosting.&quot; Trabajo de Fin de Máster, Máster en Inteligencia Artificial, VIU.'
 ---
 

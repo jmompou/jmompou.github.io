@@ -4,24 +4,38 @@
 # links. Removing a link prevents it from showing in the header, but does not
 # prevent it from being included in the site.
 #
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
+# `main` is used on Spanish pages (site root); `main_en` is used on pages under /en/.
+# Portfolio, Blog Posts and Guide are not translated yet, so both lists point at the
+# same (untranslated) URL for those.
 
 main:
-  - title: "Publications"
+  - title: "Publicaciones"
     url: /publications/
+
+  - title: "Portafolio"
+    url: /portfolio/
+
+  - title: "Blog"
+    url: /year-archive/
+
+  - title: "CV"
+    url: /cv/
+
+  - title: "Guía"
+    url: /markdown/
+
+main_en:
+  - title: "Publications"
+    url: /en/publications/
 
   - title: "Portfolio"
     url: /portfolio/
-        
+
   - title: "Blog Posts"
     url: /year-archive/
-    
+
   - title: "CV"
-    url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
-    
+    url: /en/cv/
+
   - title: "Guide"
     url: /markdown/

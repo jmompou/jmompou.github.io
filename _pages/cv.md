@@ -3,58 +3,63 @@ layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
+author: "Jorge Ibáñez Puertas (ES)"
+lang: es
+translation_url: /en/cv/
 redirect_from:
   - /resume
 ---
 
 {% include base_path %}
 
-Jorge Ibáñez Puertas — Torrevieja, Spain (open to relocation / remote) • joorge.ibanez.puertas@gmail.com
+Jorge Ibáñez Puertas — Torrevieja, España (abierto a reubicación / remoto) • joorge.ibanez.puertas@gmail.com
 linkedin.com/in/jorgeibanezpuertas • github.com/jmompou
 
-PROFILE
+PERFIL
 ======
-Mathematician (BSc, UNED) with a Master's in Artificial Intelligence (VIU) and advanced training in econometrics and causal inference (regression, time series, experimental design), with hands-on experience in Python, SQL, and BI. Fluent in English (C2, Cambridge CPE).
+Matemático (Grado, UNED) con un Máster en Inteligencia Artificial (VIU) y formación avanzada en econometría e inferencia causal (regresión, series temporales, diseño experimental), con experiencia práctica en Python, SQL y BI. Inglés fluido (C2, Cambridge CPE).
 
-EDUCATION
+FORMACIÓN
 ======
-* Master's in Artificial Intelligence — Valencia International University (VIU), Oct 2025 – Aug 2026
-  * Focus: neural networks, computer vision, deep learning (Python, TensorFlow/Keras).
-  * Master's thesis: “Electricity demand forecasting using low-cost signals and gradient boosting”.
-* BSc in Mathematics — UNED (National Distance Education University), Spain, 2018 – 2025
-  * Exchange year at the Autonomous University of Madrid (UAM), 2022–23.
-  * Thesis: “Inventory Models: Analysis and Applications”.
-  * Highest honors (Matrícula de Honor) in Discrete Mathematics and Graph Theory.
-* BSc (first year) in Aerospace Engineering — Delft University of Technology, NL, 2017 – 2018
+* Máster en Inteligencia Artificial — Universidad Internacional de Valencia (VIU), oct. 2025 – ago. 2026
+  * Enfoque: redes neuronales, visión por computador, deep learning (Python, TensorFlow/Keras).
+  * Trabajo de Fin de Máster: «Predicción de demanda eléctrica mediante señales de bajo coste y Gradient Boosting».
+* Grado en Matemáticas — UNED (Universidad Nacional de Educación a Distancia), España, 2018 – 2025
+  * Año de intercambio en la Universidad Autónoma de Madrid (UAM), 2022–23.
+  * Trabajo de Fin de Grado: «Modelos de Inventario: Análisis y algunas aplicaciones».
+  * Matrícula de Honor en Matemática Discreta y Teoría de Grafos.
+* Primer curso del Grado en Ingeniería Aeroespacial — Delft University of Technology, Países Bajos, 2017 – 2018
 
-EXPERIENCE
+EXPERIENCIA
 ======
-* Programmer & Data Analyst — Unidata, Murcia, Jun 2025 – Nov 2025
-  * Designed data models and built SQL queries and stored procedures for ETL to the reporting layer for real-time dashboards.
-  * Developed automated BI dashboards and self-service reports; contributed to business applications used in production.
-* Operations Research — Explotación Agraria Puertas, Albacete, Aug 2023 – Feb 2024
-  * Developed irrigation-coverage optimization software in AMPL; improved water-use efficiency (code on GitHub).
-  * Set up databases and performance metrics to support planning decisions.
-* Data Analyst Intern — NTT Data, Murcia, Jun 2022 – Sep 2022
-  * Processed large datasets with Python and SQL; built Tableau dashboards for client reporting.
-* Teaching & Research Assistant (internship) — University of Murcia, Dec 2021 – Jun 2022
-  * Supported teaching and research in Multivariable Calculus and Vector Analysis; prepared course materials.
+* Programador y Analista de Datos — Unidata, Murcia, jun. 2025 – nov. 2025
+  * Diseño de modelos de datos y desarrollo de consultas SQL y procedimientos almacenados para ETL hacia la capa de reporting de dashboards en tiempo real.
+  * Desarrollo de dashboards de BI automatizados e informes de autoservicio; contribución a aplicaciones de negocio en producción.
+* Investigación Operativa — Explotación Agraria Puertas, Albacete, ago. 2023 – feb. 2024
+  * Desarrollo de software de optimización de cobertura de riego en AMPL; mejora de la eficiencia en el uso del agua (código en GitHub).
+  * Configuración de bases de datos y métricas de rendimiento para apoyar la toma de decisiones.
+* Analista de Datos en prácticas — NTT Data, Murcia, jun. 2022 – sep. 2022
+  * Procesamiento de grandes volúmenes de datos con Python y SQL; desarrollo de dashboards en Tableau para reporting a cliente.
+* Ayudante de docencia e investigación (prácticas) — Universidad de Murcia, dic. 2021 – jun. 2022
+  * Apoyo a la docencia e investigación en Cálculo Multivariable y Análisis Vectorial; preparación de material docente.
 
-SKILLS
+APTITUDES
 ======
-* Programming: Python (Pandas, NumPy, TensorFlow, Keras), SQL, Java.
-* Mathematical software: R, MATLAB, Mathematica, AMPL, LaTeX.
-* Statistics & econometrics: experimental design, regression analysis, time series, causal inference, optimization.
-* Data & BI: Tableau, BI dashboarding, SQL data warehousing.
-* Languages: Spanish (native); English C2: Cambridge Proficiency (CPE), 2026.
+* Programación: Python (Pandas, NumPy, TensorFlow, Keras), SQL, Java.
+* Software matemático: R, MATLAB, Mathematica, AMPL, LaTeX.
+* Estadística y econometría: diseño experimental, análisis de regresión, series temporales, inferencia causal, optimización.
+* Datos y BI: Tableau, dashboarding de BI, almacenamiento de datos en SQL.
+* Idiomas: español (nativo); inglés C2: Cambridge Proficiency (CPE), 2026.
 
-AWARDS
+PREMIOS
 ======
-* International Baccalaureate Diploma with Distinction, 2017.
-* Winner of the 8th Secondary School Students' Prize, Department of Mathematics, Autonomous University of Madrid (UAM), 2014, for the research paper “Un camino inusual”.
+* Diploma de Bachillerato Internacional con Distinción, 2017.
+* Ganador del VIII Premio para Estudiantes de Secundaria, Departamento de Matemáticas, Universidad Autónoma de Madrid (UAM), 2014, por el trabajo de investigación «Un camino inusual».
 
-Publications
+Publicaciones
 ======
   <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
+    {% if post.lang == page.lang %}
+      {% include archive-single-cv.html %}
+    {% endif %}
   {% endfor %}</ul>

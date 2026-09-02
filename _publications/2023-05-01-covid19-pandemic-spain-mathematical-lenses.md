@@ -3,15 +3,18 @@ title: "The COVID19 pandemic in Spain through mathematical lenses"
 collection: publications
 category: projects
 permalink: /publication/2023-05-01-covid19-pandemic-spain-mathematical-lenses
+author: "Jorge Ibáñez Puertas (ES)"
+lang: es
+translation_url: /en/publication/2023-05-01-covid19-pandemic-spain-mathematical-lenses
 excerpt: 'Modelos compartimentales (SIR, SIRD, SEIQRD y modelos con vacunación) para estudiar la pandemia de COVID-19 en España, con ajuste numérico en Python.'
 date: 2023-05-01
 venue: 'Facultad de Matemáticas, Universidad de Murcia'
 citation: 'Clemente Pérez, A., Ibáñez Puertas, J., &amp; Colchero Truniger, N. (2023). &quot;The COVID19 pandemic in Spain through mathematical lenses.&quot; Facultad de Matemáticas, Universidad de Murcia.'
 ---
 
-Authors: Ana Clemente Pérez, Jorge Ibáñez Puertas, Nicolás Colchero Truniger.
+Autores: Ana Clemente Pérez, Jorge Ibáñez Puertas, Nicolás Colchero Truniger.
 
-**Abstract**
+**Resumen**
 
 Este trabajo, realizado por estudiantes de la Facultad de Matemáticas de la Universidad de Murcia (mayo 2023), estudia la pandemia de COVID-19 en España mediante modelos compartimentales basados en sistemas de ecuaciones diferenciales ordinarias. Partiendo del modelo SIR clásico de Kermack y McKendrick (1927), se construyen cinco variantes de complejidad creciente: (1) un modelo SIRD que incorpora la población fallecida por la enfermedad y supone inmunidad permanente; (2) un modelo con pérdida gradual de inmunidad, que permite la reinfección e incluye nacimientos y muertes por causas ajenas al virus; (3) un modelo SEIQRD que añade los compartimentos de expuestos y de personas en cuarentena, junto con una tasa de detección; y (4) y (5) dos modelos de vacunación, uno en el que la vacuna confiere inmunidad total y otro en el que solo reduce las tasas de infección, mortalidad y exposición, duplicando la estructura del sistema para las poblaciones vacunada y no vacunada.
 

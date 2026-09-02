@@ -1,7 +1,10 @@
 ---
 layout: splash
-title: Home
+title: Inicio
 permalink: /
+lang: es
+translation_url: /en/
+author: "Jorge Ibáñez Puertas (ES)"
 ---
 
 {% capture cvcontent %}{% include_relative _pages/cv.md %}{% endcapture %}

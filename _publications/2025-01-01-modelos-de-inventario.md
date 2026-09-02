@@ -3,6 +3,9 @@ title: "Modelos de Inventario: Análisis y algunas aplicaciones"
 collection: publications
 category: thesis
 permalink: /publication/2025-01-01-modelos-de-inventario
+author: "Jorge Ibáñez Puertas (ES)"
+lang: es
+translation_url: /en/publication/2025-01-01-modelos-de-inventario
 excerpt: 'Modelos de inventario deterministas (EOQ y variantes) y probabilísticos (continuos, periódicos, multiperiódicos) para la gestión de recursos y cadenas de suministro.'
 date: 2025-01-01
 venue: 'UNED (Universidad Nacional de Educación a Distancia), Trabajo de Fin de Grado'

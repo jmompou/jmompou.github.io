@@ -1,0 +1,32 @@
+{% include base_path %}
+
+{% assign pub_lang = include.lang | default: "es" %}
+{% assign pubs = site.publications | where: "lang", pub_lang %}
+{% assign category_keys = "manuscripts,conferences,thesis,projects,awards" | split: "," %}
+
+{% for key in category_keys %}
+  {% assign title_shown = false %}
+  {% for post in pubs reversed %}
+    {% if post.category != key %}
+      {% continue %}
+    {% endif %}
+    {% unless title_shown %}
+      <h2>
+        {% case key %}
+          {% when 'manuscripts' %}
+            {% if pub_lang == 'en' %}Journal Articles{% else %}Artículos{% endif %}
+          {% when 'conferences' %}
+            {% if pub_lang == 'en' %}Conference Papers{% else %}Congresos{% endif %}
+          {% when 'thesis' %}
+            {% if pub_lang == 'en' %}Theses{% else %}Trabajos de Fin de Grado/Máster{% endif %}
+          {% when 'projects' %}
+            {% if pub_lang == 'en' %}Projects{% else %}Proyectos{% endif %}
+          {% when 'awards' %}
+            {% if pub_lang == 'en' %}Awards & Distinctions{% else %}Premios y Distinciones{% endif %}
+        {% endcase %}
+      </h2><hr />
+      {% assign title_shown = true %}
+    {% endunless %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endfor %}
