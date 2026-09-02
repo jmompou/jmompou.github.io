@@ -23,6 +23,9 @@ Con dichas señales se lleva a cabo el entrenamiento de un modelo Gradient Boost
 
 La evaluación del sistema usa exclusivamente parte de ese registro: 208 observaciones horarias entre el 4 y el 12 de julio de 2026. En el horizonte diario el modelo comete un error medio del 3,45 %, mientras que la previsión oficial de SMARD alcanza un 4,03 % sobre las 175 marcas comunes a ambos. Ahora bien, esto se trata con cautela: es una ventaja aparente, pero se obtiene con una única semana de verano. A una hora, el error baja a un MAPE del 1,50 % y un MAE de unos 717 MW; aunque cabe decir que aquí el modelo juega con ventaja, es un caso de nowcasting y no es comparable con la previsión diaria.
 
+![Demanda real frente a predicción](/images/demanda_real_vs_prediccion.png)
+*Demanda real de electricidad en Alemania vs. la predicción de mi modelo.*
+
 Hay indicios de que el modelo podría superar a la previsión oficial de SMARD en el horizonte diario, pero esta conclusión debe tomarse con cautela: todavía falta comprobarlo formalmente con un test de Diebold-Mariano y con más datos, ya que el resultado actual se apoya en una única semana de evaluación.
 
 Todo lo observado en el proyecto sugiere que, efectivamente, se pueden utilizar señales de fácil obtención para alcanzar predicciones útiles en el nivel operativo.

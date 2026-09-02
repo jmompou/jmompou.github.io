@@ -66,23 +66,26 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
 
-        {% capture links_html %}{% endcapture %}
-        {% for pair in "paperurl,download_paper_label|demourl,demo_label|codeurl,code_label|slidesurl,download_slides_label|bibtexurl,download_bibtex_label" | split: "|" %}
-          {% assign field_name = pair | split: "," | first %}
-          {% assign label_name = pair | split: "," | last %}
-          {% assign field_value = page[field_name] %}
-          {% if field_value %}
-            {% case label_name %}
-              {% when 'download_paper_label' %}{% assign label_value = download_paper_label %}
-              {% when 'demo_label' %}{% assign label_value = demo_label %}
-              {% when 'code_label' %}{% assign label_value = code_label %}
-              {% when 'download_slides_label' %}{% assign label_value = download_slides_label %}
-              {% when 'download_bibtex_label' %}{% assign label_value = download_bibtex_label %}
-            {% endcase %}
-            {% if links_html != "" %}{% capture links_html %}{{ links_html }} | {% endcapture %}{% endif %}
-            {% capture links_html %}{{ links_html }}<a href="{{ field_value }}">{{ label_value }}</a>{% endcapture %}
-          {% endif %}
-        {% endfor %}
+        {% assign links_html = "" %}
+        {% if page.paperurl %}
+          {% assign links_html = links_html | append: '<a href="' | append: page.paperurl | append: '">' | append: download_paper_label | append: '</a>' %}
+        {% endif %}
+        {% if page.demourl %}
+          {% if links_html != "" %}{% assign links_html = links_html | append: ' | ' %}{% endif %}
+          {% assign links_html = links_html | append: '<a href="' | append: page.demourl | append: '">' | append: demo_label | append: '</a>' %}
+        {% endif %}
+        {% if page.codeurl %}
+          {% if links_html != "" %}{% assign links_html = links_html | append: ' | ' %}{% endif %}
+          {% assign links_html = links_html | append: '<a href="' | append: page.codeurl | append: '">' | append: code_label | append: '</a>' %}
+        {% endif %}
+        {% if page.slidesurl %}
+          {% if links_html != "" %}{% assign links_html = links_html | append: ' | ' %}{% endif %}
+          {% assign links_html = links_html | append: '<a href="' | append: page.slidesurl | append: '">' | append: download_slides_label | append: '</a>' %}
+        {% endif %}
+        {% if page.bibtexurl %}
+          {% if links_html != "" %}{% assign links_html = links_html | append: ' | ' %}{% endif %}
+          {% assign links_html = links_html | append: '<a href="' | append: page.bibtexurl | append: '">' | append: download_bibtex_label | append: '</a>' %}
+        {% endif %}
 
         {% if page.citation and links_html != "" %}
           <p style="font-size: smaller">{{ recommended_citation_label }}: {{ page.citation }}<br />{{ links_html }}</p>

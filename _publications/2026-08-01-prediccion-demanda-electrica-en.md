@@ -22,6 +22,9 @@ Using these signals, a one-step-ahead Gradient Boosting model is trained, able t
 
 The system's evaluation uses exclusively part of that log: 208 hourly observations between July 4 and July 12, 2026. Over the daily horizon the model achieves a mean error of 3.45%, while SMARD's official forecast reaches 4.03% over the 175 timestamps common to both. This should be read with caution, though: it is an apparent advantage, but obtained over a single summer week. At the one-hour horizon, the error drops to a MAPE of 1.50% and a MAE of about 717 MW; although it should be noted that here the model has an advantage, since it is a nowcasting case and is not comparable to the daily forecast.
 
+![Actual demand vs. forecast](/images/demanda_real_vs_prediccion.png)
+*Actual German electricity demand vs. my model's prediction.*
+
 There are indications that the model may outperform SMARD's official forecast over the daily horizon, but this conclusion should be taken with caution: it still needs to be formally verified with a Diebold-Mariano test and with more data, since the current result rests on a single evaluation week.
 
 Everything observed in the project suggests that, indeed, easily obtainable signals can be used to achieve useful forecasts at the operational level.
