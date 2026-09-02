@@ -92,6 +92,8 @@ publication_category:
     title: 'Conference Papers'
   thesis:
     title: 'Theses'
+  projects:
+    title: 'Projects'
   awards:
     title: 'Awards & Distinctions'
 
